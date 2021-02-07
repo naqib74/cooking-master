@@ -8,7 +8,7 @@ button.addEventListener('click', (event) => {
     loadData(userInput);
 });
 
-    const loadData = userInput => {
+const loadData = userInput => {
 
     let url = "";
     if (userInput.length === 1) {
@@ -17,10 +17,10 @@ button.addEventListener('click', (event) => {
         mealDetails.innerHTML = null;
 
     }
-    else if(userInput.length === 0){
+    else if (userInput.length === 0) {
         url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${userInput}`;
         alert('please write something');
-        
+
     }
     else {
         url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${userInput}`;
@@ -32,11 +32,9 @@ button.addEventListener('click', (event) => {
         .then(data => {
             displayData(data)
         })
-    //.catch(error => console.log(error))
 }
 
-
-
+// Display meal Data
 const displayData = data => {
 
     data.meals.forEach(element => {
@@ -57,7 +55,7 @@ const displayData = data => {
 
     });
 }
-
+// Display details meal info
 const displayMealDetails = (string) => {
 
     url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${string}`;
@@ -89,7 +87,6 @@ const displayMealDetails = (string) => {
                         <li>${element.strIngredient7}</li>
                         <li>${element.strIngredient8}</li>
                         <li>${element.strIngredient9}</li>
-                        <li>${element.strIngredient10}</li>
                     </ul>
                     </div> `;
                 }
